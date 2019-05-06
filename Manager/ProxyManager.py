@@ -92,6 +92,5 @@ class ProxyManager(object):
                 continue
 
 
-
 if __name__ == '__main__':
     pp = ProxyManager()

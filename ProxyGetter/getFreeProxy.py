@@ -47,7 +47,7 @@ class GetFreeProxy(object):
         """
         print("get from txt")
         try:
-            txt = open('D:/Code/CodeExercise/20190116/Ip_proxy_pool/free-proxy-list.txt')
+            txt = open('D:/Code/2019-1-12/Ip_Proxy/free-proxy-list.txt')
             contens = txt.readlines()
             # ipdict = []
             for line in contens:

@@ -24,7 +24,7 @@ class ProxyValidSchedule(ProxyManager, object):
         self.queue = Queue()
         self.proxy_item = []
 
-    def __validProxy(self, threads=5):
+    def __validProxy(self, threads=20):
         """
         验证useful_proxy代理
         :param threads:
@@ -46,8 +46,8 @@ class ProxyValidSchedule(ProxyManager, object):
                 self.log.info('Start valid useful proxy')
                 self.__validProxy()
             else:                                                   # 空则验证结束，等待5分钟，再次取出验证
-                self.log.info('Valid Complete! sleep 5 minutes.')
-                time.sleep(60 * 20)
+                self.log.info('Valid Complete! sleep 30 minutes.')
+                time.sleep(60 * 2)
                 self.putQueue()
 
 

@@ -82,6 +82,7 @@ class ProxyManager(object):
                 for proxy in getattr(GetFreeProxy, proxyGetter.strip())():  # getattr后面加()，直接运行该函数，即运行某个抓取函数
                     #
                     proxy = proxy.strip()
+    #                print(proxy)
                     if proxy and verifyProxyFormat(proxy):                  # 验证proxy符合IP代理的格式
                         self.log.info('{func}: fetch proxy {proxy}'.format(func=proxyGetter, proxy=proxy))
                         self.db.put(proxy)                                  # 验证通过加入数据库

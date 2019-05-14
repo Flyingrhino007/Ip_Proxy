@@ -1,0 +1,716 @@
+ * Serving Flask app "Api.ProxyApi" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+INFO:werkzeug: * Running on http://127.0.0.1:5010/ (Press CTRL+C to quit)
+2019-05-14 15:20:37,608 ProxyManager.py[line:81] INFO freeProxyRaw: fetch proxy start
+--2019-05-14 15:20:37--  https://raw.githubusercontent.com/a2u/free-proxy-list/master/free-proxy-list.txt
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.228.133
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|151.101.228.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 774 [text/plain]
+Saving to: ‘free-proxy-list.txt’
+
+     0K                                                       100%  180M=0s
+
+2019-05-14 15:20:37 (180 MB/s) - ‘free-proxy-list.txt’ saved [774/774]
+
+2019-05-14 15:20:42,615 ProxyManager.py[line:87] INFO freeProxyRaw: fetch proxy 134.19.218.94:3129
+Process ValidRun:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/multiprocessing/process.py", line 249, in _bootstrap
+    self.run()
+  File "/usr/local/lib/python3.6/multiprocessing/process.py", line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File "../Schedule/ProxyValidSchedule.py", line 67, in run
+    p.main()
+  File "../Schedule/ProxyValidSchedule.py", line 43, in main
+    self.putQueue()                                             # 调用putQueue()
+  File "../Schedule/ProxyValidSchedule.py", line 60, in putQueue
+    self.proxy_item = self.db.getAll()
+  File "../DB/DbClient.py", line 78, in getAll
+    return self.client.getAll()
+  File "../DB/MongodbClient.py", line 47, in getAll
+    return {p['proxy']: p['num'] for p in self.db[self.name].find()}
+  File "../DB/MongodbClient.py", line 47, in <dictcomp>
+    return {p['proxy']: p['num'] for p in self.db[self.name].find()}
+  File "/usr/local/lib/python3.6/site-packages/pymongo/cursor.py", line 1225, in next
+    if len(self.__data) or self._refresh():
+  File "/usr/local/lib/python3.6/site-packages/pymongo/cursor.py", line 1117, in _refresh
+    self.__session = self.__collection.database.client._ensure_session()
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1598, in _ensure_session
+    return self.__start_session(True, causal_consistency=False)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1551, in __start_session
+    server_session = self._get_server_session()
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1584, in _get_server_session
+    return self._topology.get_server_session()
+  File "/usr/local/lib/python3.6/site-packages/pymongo/topology.py", line 429, in get_server_session
+    None)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/topology.py", line 200, in _select_servers_loop
+    self._error_message(selector))
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [Errno 111] Connection refused
+2019-05-14 15:21:12,693 ProxyManager.py[line:92] ERROR freeProxyRaw: fetch proxy fail
+2019-05-14 15:21:12,693 ProxyManager.py[line:81] INFO freeProxyFirst: fetch proxy start
+2019-05-14 15:21:15,123 ProxyManager.py[line:87] INFO freeProxyFirst: fetch proxy 120.210.219.104:8527
+2019-05-14 15:21:45,282 ProxyManager.py[line:92] ERROR freeProxyFirst: fetch proxy fail
+2019-05-14 15:21:45,282 ProxyManager.py[line:81] INFO freeProxySecond: fetch proxy start
+2019-05-14 15:22:09,479 ProxyManager.py[line:92] ERROR freeProxySecond: fetch proxy fail
+2019-05-14 15:22:09,479 ProxyManager.py[line:81] INFO freeProxyThird: fetch proxy start
+2019-05-14 15:22:24,233 ProxyManager.py[line:81] INFO freeProxyFourth: fetch proxy start
+2019-05-14 15:22:50,940 ProxyManager.py[line:92] ERROR freeProxyFourth: fetch proxy fail
+2019-05-14 15:22:50,940 ProxyManager.py[line:81] INFO freeProxyFifth: fetch proxy start
+2019-05-14 15:22:53,637 ProxyManager.py[line:87] INFO freeProxyFifth: fetch proxy 120.210.219.104:8454
+2019-05-14 15:23:23,952 ProxyManager.py[line:92] ERROR freeProxyFifth: fetch proxy fail
+2019-05-14 15:23:23,952 ProxyManager.py[line:81] INFO freeProxySixth: fetch proxy start
+2019-05-14 15:23:24,130 ProxyManager.py[line:81] INFO freeProxySeventh: fetch proxy start
+2019-05-14 15:23:26,799 ProxyManager.py[line:87] INFO freeProxySeventh: fetch proxy 117.95.86.226:9999
+2019-05-14 15:23:57,038 ProxyManager.py[line:92] ERROR freeProxySeventh: fetch proxy fail
+2019-05-14 15:23:57,038 ProxyManager.py[line:81] INFO freeProxyNinth: fetch proxy start
+2019-05-14 15:24:17,305 ProxyManager.py[line:81] INFO freeProxyTen: fetch proxy start
+2019-05-14 15:24:17,922 ProxyManager.py[line:87] INFO freeProxyTen: fetch proxy 171.80.3.42:9999
+2019-05-14 15:24:48,148 ProxyManager.py[line:92] ERROR freeProxyTen: fetch proxy fail
+2019-05-14 15:24:48,149 ProxyManager.py[line:81] INFO freeProxyTwelve: fetch proxy start
+2019-05-14 15:24:50,694 ProxyManager.py[line:87] INFO freeProxyTwelve: fetch proxy 197.234.56.201:8083
+2019-05-14 15:25:20,735 ProxyManager.py[line:92] ERROR freeProxyTwelve: fetch proxy fail
+2019-05-14 15:25:20,736 ProxyManager.py[line:81] INFO password: fetch proxy start
+2019-05-14 15:25:20,736 ProxyManager.py[line:92] ERROR password: fetch proxy fail
+Exception in thread Thread-19:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/threading.py", line 916, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.6/threading.py", line 864, in run
+    self._target(*self._args, **self._kwargs)
+  File "../Schedule/ProxyRefreshSchedule.py", line 64, in refreshPool
+    pp.validProxy()
+  File "../Schedule/ProxyRefreshSchedule.py", line 41, in validProxy
+    raw_proxy_item = self.db.pop()
+  File "../DB/DbClient.py", line 75, in pop
+    return self.client.pop()
+  File "../DB/MongodbClient.py", line 35, in pop
+    data = list(self.db[self.name].aggregate([{'$sample': {'size': 1}}]))
+  File "/usr/local/lib/python3.6/site-packages/pymongo/collection.py", line 2405, in aggregate
+    with self.__database.client._tmp_session(session, close=False) as s:
+  File "/usr/local/lib/python3.6/contextlib.py", line 82, in __enter__
+    return next(self.gen)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1611, in _tmp_session
+    s = self._ensure_session(session)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1598, in _ensure_session
+    return self.__start_session(True, causal_consistency=False)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1551, in __start_session
+    server_session = self._get_server_session()
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1584, in _get_server_session
+    return self._topology.get_server_session()
+  File "/usr/local/lib/python3.6/site-packages/pymongo/topology.py", line 429, in get_server_session
+    None)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/topology.py", line 200, in _select_servers_loop
+    self._error_message(selector))
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [Errno 111] Connection refused
+
+Exception in thread Thread-11:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/threading.py", line 916, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.6/threading.py", line 864, in run
+    self._target(*self._args, **self._kwargs)
+  File "../Schedule/ProxyRefreshSchedule.py", line 64, in refreshPool
+    pp.validProxy()
+  File "../Schedule/ProxyRefreshSchedule.py", line 41, in validProxy
+    raw_proxy_item = self.db.pop()
+  File "../DB/DbClient.py", line 75, in pop
+    return self.client.pop()
+  File "../DB/MongodbClient.py", line 35, in pop
+    data = list(self.db[self.name].aggregate([{'$sample': {'size': 1}}]))
+  File "/usr/local/lib/python3.6/site-packages/pymongo/collection.py", line 2405, in aggregate
+    with self.__database.client._tmp_session(session, close=False) as s:
+  File "/usr/local/lib/python3.6/contextlib.py", line 82, in __enter__
+    return next(self.gen)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1611, in _tmp_session
+    s = self._ensure_session(session)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1598, in _ensure_session
+    return self.__start_session(True, causal_consistency=False)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1551, in __start_session
+    server_session = self._get_server_session()
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1584, in _get_server_session
+    return self._topology.get_server_session()
+  File "/usr/local/lib/python3.6/site-packages/pymongo/topology.py", line 429, in get_server_session
+    None)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/topology.py", line 200, in _select_servers_loop
+    self._error_message(selector))
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [Errno 111] Connection refused
+
+Exception in thread Thread-8:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/threading.py", line 916, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.6/threading.py", line 864, in run
+    self._target(*self._args, **self._kwargs)
+  File "../Schedule/ProxyRefreshSchedule.py", line 64, in refreshPool
+    pp.validProxy()
+  File "../Schedule/ProxyRefreshSchedule.py", line 41, in validProxy
+    raw_proxy_item = self.db.pop()
+  File "../DB/DbClient.py", line 75, in pop
+    return self.client.pop()
+  File "../DB/MongodbClient.py", line 35, in pop
+    data = list(self.db[self.name].aggregate([{'$sample': {'size': 1}}]))
+  File "/usr/local/lib/python3.6/site-packages/pymongo/collection.py", line 2405, in aggregate
+    with self.__database.client._tmp_session(session, close=False) as s:
+  File "/usr/local/lib/python3.6/contextlib.py", line 82, in __enter__
+    return next(self.gen)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1611, in _tmp_session
+    s = self._ensure_session(session)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1598, in _ensure_session
+    return self.__start_session(True, causal_consistency=False)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1551, in __start_session
+    server_session = self._get_server_session()
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1584, in _get_server_session
+    return self._topology.get_server_session()
+  File "/usr/local/lib/python3.6/site-packages/pymongo/topology.py", line 429, in get_server_session
+    None)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/topology.py", line 200, in _select_servers_loop
+    self._error_message(selector))
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [Errno 111] Connection refused
+
+Exception in thread Thread-4:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/threading.py", line 916, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.6/threading.py", line 864, in run
+    self._target(*self._args, **self._kwargs)
+  File "../Schedule/ProxyRefreshSchedule.py", line 64, in refreshPool
+    pp.validProxy()
+  File "../Schedule/ProxyRefreshSchedule.py", line 41, in validProxy
+    raw_proxy_item = self.db.pop()
+  File "../DB/DbClient.py", line 75, in pop
+    return self.client.pop()
+  File "../DB/MongodbClient.py", line 35, in pop
+    data = list(self.db[self.name].aggregate([{'$sample': {'size': 1}}]))
+  File "/usr/local/lib/python3.6/site-packages/pymongo/collection.py", line 2405, in aggregate
+    with self.__database.client._tmp_session(session, close=False) as s:
+  File "/usr/local/lib/python3.6/contextlib.py", line 82, in __enter__
+    return next(self.gen)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1611, in _tmp_session
+    s = self._ensure_session(session)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1598, in _ensure_session
+    return self.__start_session(True, causal_consistency=False)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1551, in __start_session
+    server_session = self._get_server_session()
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1584, in _get_server_session
+    return self._topology.get_server_session()
+  File "/usr/local/lib/python3.6/site-packages/pymongo/topology.py", line 429, in get_server_session
+    None)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/topology.py", line 200, in _select_servers_loop
+    self._error_message(selector))
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [Errno 111] Connection refused
+
+Exception in thread Thread-17:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/threading.py", line 916, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.6/threading.py", line 864, in run
+    self._target(*self._args, **self._kwargs)
+  File "../Schedule/ProxyRefreshSchedule.py", line 64, in refreshPool
+    pp.validProxy()
+  File "../Schedule/ProxyRefreshSchedule.py", line 41, in validProxy
+    raw_proxy_item = self.db.pop()
+  File "../DB/DbClient.py", line 75, in pop
+    return self.client.pop()
+  File "../DB/MongodbClient.py", line 35, in pop
+    data = list(self.db[self.name].aggregate([{'$sample': {'size': 1}}]))
+  File "/usr/local/lib/python3.6/site-packages/pymongo/collection.py", line 2405, in aggregate
+    with self.__database.client._tmp_session(session, close=False) as s:
+  File "/usr/local/lib/python3.6/contextlib.py", line 82, in __enter__
+    return next(self.gen)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1611, in _tmp_session
+    s = self._ensure_session(session)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1598, in _ensure_session
+    return self.__start_session(True, causal_consistency=False)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1551, in __start_session
+    server_session = self._get_server_session()
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1584, in _get_server_session
+    return self._topology.get_server_session()
+  File "/usr/local/lib/python3.6/site-packages/pymongo/topology.py", line 429, in get_server_session
+    None)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/topology.py", line 200, in _select_servers_loop
+    self._error_message(selector))
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [Errno 111] Connection refused
+
+Exception in thread Thread-9:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/threading.py", line 916, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.6/threading.py", line 864, in run
+    self._target(*self._args, **self._kwargs)
+  File "../Schedule/ProxyRefreshSchedule.py", line 64, in refreshPool
+    pp.validProxy()
+  File "../Schedule/ProxyRefreshSchedule.py", line 41, in validProxy
+    raw_proxy_item = self.db.pop()
+  File "../DB/DbClient.py", line 75, in pop
+    return self.client.pop()
+  File "../DB/MongodbClient.py", line 35, in pop
+    data = list(self.db[self.name].aggregate([{'$sample': {'size': 1}}]))
+  File "/usr/local/lib/python3.6/site-packages/pymongo/collection.py", line 2405, in aggregate
+    with self.__database.client._tmp_session(session, close=False) as s:
+  File "/usr/local/lib/python3.6/contextlib.py", line 82, in __enter__
+    return next(self.gen)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1611, in _tmp_session
+    s = self._ensure_session(session)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1598, in _ensure_session
+    return self.__start_session(True, causal_consistency=False)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1551, in __start_session
+    server_session = self._get_server_session()
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1584, in _get_server_session
+    return self._topology.get_server_session()
+  File "/usr/local/lib/python3.6/site-packages/pymongo/topology.py", line 429, in get_server_session
+    None)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/topology.py", line 200, in _select_servers_loop
+    self._error_message(selector))
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [Errno 111] Connection refused
+
+Exception in thread Thread-1:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/threading.py", line 916, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.6/threading.py", line 864, in run
+    self._target(*self._args, **self._kwargs)
+  File "../Schedule/ProxyRefreshSchedule.py", line 64, in refreshPool
+    pp.validProxy()
+  File "../Schedule/ProxyRefreshSchedule.py", line 41, in validProxy
+    raw_proxy_item = self.db.pop()
+  File "../DB/DbClient.py", line 75, in pop
+    return self.client.pop()
+  File "../DB/MongodbClient.py", line 35, in pop
+    data = list(self.db[self.name].aggregate([{'$sample': {'size': 1}}]))
+  File "/usr/local/lib/python3.6/site-packages/pymongo/collection.py", line 2405, in aggregate
+    with self.__database.client._tmp_session(session, close=False) as s:
+  File "/usr/local/lib/python3.6/contextlib.py", line 82, in __enter__
+    return next(self.gen)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1611, in _tmp_session
+    s = self._ensure_session(session)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1598, in _ensure_session
+    return self.__start_session(True, causal_consistency=False)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1551, in __start_session
+    server_session = self._get_server_session()
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1584, in _get_server_session
+    return self._topology.get_server_session()
+  File "/usr/local/lib/python3.6/site-packages/pymongo/topology.py", line 429, in get_server_session
+    None)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/topology.py", line 200, in _select_servers_loop
+    self._error_message(selector))
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [Errno 111] Connection refused
+
+Exception in thread Thread-3:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/threading.py", line 916, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.6/threading.py", line 864, in run
+    self._target(*self._args, **self._kwargs)
+  File "../Schedule/ProxyRefreshSchedule.py", line 64, in refreshPool
+    pp.validProxy()
+  File "../Schedule/ProxyRefreshSchedule.py", line 41, in validProxy
+    raw_proxy_item = self.db.pop()
+  File "../DB/DbClient.py", line 75, in pop
+    return self.client.pop()
+  File "../DB/MongodbClient.py", line 35, in pop
+    data = list(self.db[self.name].aggregate([{'$sample': {'size': 1}}]))
+  File "/usr/local/lib/python3.6/site-packages/pymongo/collection.py", line 2405, in aggregate
+    with self.__database.client._tmp_session(session, close=False) as s:
+  File "/usr/local/lib/python3.6/contextlib.py", line 82, in __enter__
+    return next(self.gen)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1611, in _tmp_session
+    s = self._ensure_session(session)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1598, in _ensure_session
+    return self.__start_session(True, causal_consistency=False)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1551, in __start_session
+    server_session = self._get_server_session()
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1584, in _get_server_session
+    return self._topology.get_server_session()
+  File "/usr/local/lib/python3.6/site-packages/pymongo/topology.py", line 429, in get_server_session
+    None)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/topology.py", line 200, in _select_servers_loop
+    self._error_message(selector))
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [Errno 111] Connection refused
+
+Exception in thread Thread-15:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/threading.py", line 916, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.6/threading.py", line 864, in run
+    self._target(*self._args, **self._kwargs)
+  File "../Schedule/ProxyRefreshSchedule.py", line 64, in refreshPool
+    pp.validProxy()
+  File "../Schedule/ProxyRefreshSchedule.py", line 41, in validProxy
+    raw_proxy_item = self.db.pop()
+  File "../DB/DbClient.py", line 75, in pop
+    return self.client.pop()
+  File "../DB/MongodbClient.py", line 35, in pop
+    data = list(self.db[self.name].aggregate([{'$sample': {'size': 1}}]))
+  File "/usr/local/lib/python3.6/site-packages/pymongo/collection.py", line 2405, in aggregate
+    with self.__database.client._tmp_session(session, close=False) as s:
+  File "/usr/local/lib/python3.6/contextlib.py", line 82, in __enter__
+    return next(self.gen)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1611, in _tmp_session
+    s = self._ensure_session(session)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1598, in _ensure_session
+    return self.__start_session(True, causal_consistency=False)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1551, in __start_session
+    server_session = self._get_server_session()
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1584, in _get_server_session
+    return self._topology.get_server_session()
+  File "/usr/local/lib/python3.6/site-packages/pymongo/topology.py", line 429, in get_server_session
+    None)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/topology.py", line 200, in _select_servers_loop
+    self._error_message(selector))
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [Errno 111] Connection refused
+
+Exception in thread Thread-16:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/threading.py", line 916, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.6/threading.py", line 864, in run
+    self._target(*self._args, **self._kwargs)
+  File "../Schedule/ProxyRefreshSchedule.py", line 64, in refreshPool
+    pp.validProxy()
+  File "../Schedule/ProxyRefreshSchedule.py", line 41, in validProxy
+    raw_proxy_item = self.db.pop()
+  File "../DB/DbClient.py", line 75, in pop
+    return self.client.pop()
+  File "../DB/MongodbClient.py", line 35, in pop
+    data = list(self.db[self.name].aggregate([{'$sample': {'size': 1}}]))
+  File "/usr/local/lib/python3.6/site-packages/pymongo/collection.py", line 2405, in aggregate
+    with self.__database.client._tmp_session(session, close=False) as s:
+  File "/usr/local/lib/python3.6/contextlib.py", line 82, in __enter__
+    return next(self.gen)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1611, in _tmp_session
+    s = self._ensure_session(session)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1598, in _ensure_session
+    return self.__start_session(True, causal_consistency=False)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1551, in __start_session
+    server_session = self._get_server_session()
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1584, in _get_server_session
+    return self._topology.get_server_session()
+  File "/usr/local/lib/python3.6/site-packages/pymongo/topology.py", line 429, in get_server_session
+    None)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/topology.py", line 200, in _select_servers_loop
+    self._error_message(selector))
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [Errno 111] Connection refused
+
+Exception in thread Thread-12:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/threading.py", line 916, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.6/threading.py", line 864, in run
+    self._target(*self._args, **self._kwargs)
+  File "../Schedule/ProxyRefreshSchedule.py", line 64, in refreshPool
+    pp.validProxy()
+  File "../Schedule/ProxyRefreshSchedule.py", line 41, in validProxy
+    raw_proxy_item = self.db.pop()
+  File "../DB/DbClient.py", line 75, in pop
+    return self.client.pop()
+  File "../DB/MongodbClient.py", line 35, in pop
+    data = list(self.db[self.name].aggregate([{'$sample': {'size': 1}}]))
+  File "/usr/local/lib/python3.6/site-packages/pymongo/collection.py", line 2405, in aggregate
+    with self.__database.client._tmp_session(session, close=False) as s:
+  File "/usr/local/lib/python3.6/contextlib.py", line 82, in __enter__
+    return next(self.gen)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1611, in _tmp_session
+    s = self._ensure_session(session)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1598, in _ensure_session
+    return self.__start_session(True, causal_consistency=False)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1551, in __start_session
+    server_session = self._get_server_session()
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1584, in _get_server_session
+    return self._topology.get_server_session()
+  File "/usr/local/lib/python3.6/site-packages/pymongo/topology.py", line 429, in get_server_session
+    None)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/topology.py", line 200, in _select_servers_loop
+    self._error_message(selector))
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [Errno 111] Connection refused
+
+Exception in thread Thread-7:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/threading.py", line 916, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.6/threading.py", line 864, in run
+    self._target(*self._args, **self._kwargs)
+  File "../Schedule/ProxyRefreshSchedule.py", line 64, in refreshPool
+    pp.validProxy()
+  File "../Schedule/ProxyRefreshSchedule.py", line 41, in validProxy
+    raw_proxy_item = self.db.pop()
+  File "../DB/DbClient.py", line 75, in pop
+    return self.client.pop()
+  File "../DB/MongodbClient.py", line 35, in pop
+    data = list(self.db[self.name].aggregate([{'$sample': {'size': 1}}]))
+  File "/usr/local/lib/python3.6/site-packages/pymongo/collection.py", line 2405, in aggregate
+    with self.__database.client._tmp_session(session, close=False) as s:
+  File "/usr/local/lib/python3.6/contextlib.py", line 82, in __enter__
+    return next(self.gen)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1611, in _tmp_session
+    s = self._ensure_session(session)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1598, in _ensure_session
+    return self.__start_session(True, causal_consistency=False)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1551, in __start_session
+    server_session = self._get_server_session()
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1584, in _get_server_session
+    return self._topology.get_server_session()
+  File "/usr/local/lib/python3.6/site-packages/pymongo/topology.py", line 429, in get_server_session
+    None)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/topology.py", line 200, in _select_servers_loop
+    self._error_message(selector))
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [Errno 111] Connection refused
+
+Exception in thread Thread-14:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/threading.py", line 916, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.6/threading.py", line 864, in run
+    self._target(*self._args, **self._kwargs)
+  File "../Schedule/ProxyRefreshSchedule.py", line 64, in refreshPool
+    pp.validProxy()
+  File "../Schedule/ProxyRefreshSchedule.py", line 41, in validProxy
+    raw_proxy_item = self.db.pop()
+  File "../DB/DbClient.py", line 75, in pop
+    return self.client.pop()
+  File "../DB/MongodbClient.py", line 35, in pop
+    data = list(self.db[self.name].aggregate([{'$sample': {'size': 1}}]))
+  File "/usr/local/lib/python3.6/site-packages/pymongo/collection.py", line 2405, in aggregate
+    with self.__database.client._tmp_session(session, close=False) as s:
+  File "/usr/local/lib/python3.6/contextlib.py", line 82, in __enter__
+    return next(self.gen)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1611, in _tmp_session
+    s = self._ensure_session(session)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1598, in _ensure_session
+    return self.__start_session(True, causal_consistency=False)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1551, in __start_session
+    server_session = self._get_server_session()
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1584, in _get_server_session
+    return self._topology.get_server_session()
+  File "/usr/local/lib/python3.6/site-packages/pymongo/topology.py", line 429, in get_server_session
+    None)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/topology.py", line 200, in _select_servers_loop
+    self._error_message(selector))
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [Errno 111] Connection refused
+
+Exception in thread Thread-6:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/threading.py", line 916, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.6/threading.py", line 864, in run
+    self._target(*self._args, **self._kwargs)
+  File "../Schedule/ProxyRefreshSchedule.py", line 64, in refreshPool
+    pp.validProxy()
+  File "../Schedule/ProxyRefreshSchedule.py", line 41, in validProxy
+    raw_proxy_item = self.db.pop()
+  File "../DB/DbClient.py", line 75, in pop
+    return self.client.pop()
+  File "../DB/MongodbClient.py", line 35, in pop
+    data = list(self.db[self.name].aggregate([{'$sample': {'size': 1}}]))
+  File "/usr/local/lib/python3.6/site-packages/pymongo/collection.py", line 2405, in aggregate
+    with self.__database.client._tmp_session(session, close=False) as s:
+  File "/usr/local/lib/python3.6/contextlib.py", line 82, in __enter__
+    return next(self.gen)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1611, in _tmp_session
+    s = self._ensure_session(session)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1598, in _ensure_session
+    return self.__start_session(True, causal_consistency=False)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1551, in __start_session
+    server_session = self._get_server_session()
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1584, in _get_server_session
+    return self._topology.get_server_session()
+  File "/usr/local/lib/python3.6/site-packages/pymongo/topology.py", line 429, in get_server_session
+    None)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/topology.py", line 200, in _select_servers_loop
+    self._error_message(selector))
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [Errno 111] Connection refused
+
+Exception in thread Thread-5:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/threading.py", line 916, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.6/threading.py", line 864, in run
+    self._target(*self._args, **self._kwargs)
+  File "../Schedule/ProxyRefreshSchedule.py", line 64, in refreshPool
+    pp.validProxy()
+  File "../Schedule/ProxyRefreshSchedule.py", line 41, in validProxy
+    raw_proxy_item = self.db.pop()
+  File "../DB/DbClient.py", line 75, in pop
+    return self.client.pop()
+  File "../DB/MongodbClient.py", line 35, in pop
+    data = list(self.db[self.name].aggregate([{'$sample': {'size': 1}}]))
+  File "/usr/local/lib/python3.6/site-packages/pymongo/collection.py", line 2405, in aggregate
+    with self.__database.client._tmp_session(session, close=False) as s:
+  File "/usr/local/lib/python3.6/contextlib.py", line 82, in __enter__
+    return next(self.gen)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1611, in _tmp_session
+    s = self._ensure_session(session)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1598, in _ensure_session
+    return self.__start_session(True, causal_consistency=False)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1551, in __start_session
+    server_session = self._get_server_session()
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1584, in _get_server_session
+    return self._topology.get_server_session()
+  File "/usr/local/lib/python3.6/site-packages/pymongo/topology.py", line 429, in get_server_session
+    None)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/topology.py", line 200, in _select_servers_loop
+    self._error_message(selector))
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [Errno 111] Connection refused
+
+Exception in thread Thread-20:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/threading.py", line 916, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.6/threading.py", line 864, in run
+    self._target(*self._args, **self._kwargs)
+  File "../Schedule/ProxyRefreshSchedule.py", line 64, in refreshPool
+    pp.validProxy()
+  File "../Schedule/ProxyRefreshSchedule.py", line 41, in validProxy
+    raw_proxy_item = self.db.pop()
+  File "../DB/DbClient.py", line 75, in pop
+    return self.client.pop()
+  File "../DB/MongodbClient.py", line 35, in pop
+    data = list(self.db[self.name].aggregate([{'$sample': {'size': 1}}]))
+  File "/usr/local/lib/python3.6/site-packages/pymongo/collection.py", line 2405, in aggregate
+    with self.__database.client._tmp_session(session, close=False) as s:
+  File "/usr/local/lib/python3.6/contextlib.py", line 82, in __enter__
+    return next(self.gen)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1611, in _tmp_session
+    s = self._ensure_session(session)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1598, in _ensure_session
+    return self.__start_session(True, causal_consistency=False)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1551, in __start_session
+    server_session = self._get_server_session()
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1584, in _get_server_session
+    return self._topology.get_server_session()
+  File "/usr/local/lib/python3.6/site-packages/pymongo/topology.py", line 429, in get_server_session
+    None)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/topology.py", line 200, in _select_servers_loop
+    self._error_message(selector))
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [Errno 111] Connection refused
+
+Exception in thread Thread-10:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/threading.py", line 916, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.6/threading.py", line 864, in run
+    self._target(*self._args, **self._kwargs)
+  File "../Schedule/ProxyRefreshSchedule.py", line 64, in refreshPool
+    pp.validProxy()
+  File "../Schedule/ProxyRefreshSchedule.py", line 41, in validProxy
+    raw_proxy_item = self.db.pop()
+  File "../DB/DbClient.py", line 75, in pop
+    return self.client.pop()
+  File "../DB/MongodbClient.py", line 35, in pop
+    data = list(self.db[self.name].aggregate([{'$sample': {'size': 1}}]))
+  File "/usr/local/lib/python3.6/site-packages/pymongo/collection.py", line 2405, in aggregate
+    with self.__database.client._tmp_session(session, close=False) as s:
+  File "/usr/local/lib/python3.6/contextlib.py", line 82, in __enter__
+    return next(self.gen)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1611, in _tmp_session
+    s = self._ensure_session(session)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1598, in _ensure_session
+    return self.__start_session(True, causal_consistency=False)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1551, in __start_session
+    server_session = self._get_server_session()
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1584, in _get_server_session
+    return self._topology.get_server_session()
+  File "/usr/local/lib/python3.6/site-packages/pymongo/topology.py", line 429, in get_server_session
+    None)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/topology.py", line 200, in _select_servers_loop
+    self._error_message(selector))
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [Errno 111] Connection refused
+
+Exception in thread Thread-18:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/threading.py", line 916, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.6/threading.py", line 864, in run
+    self._target(*self._args, **self._kwargs)
+  File "../Schedule/ProxyRefreshSchedule.py", line 64, in refreshPool
+    pp.validProxy()
+  File "../Schedule/ProxyRefreshSchedule.py", line 41, in validProxy
+    raw_proxy_item = self.db.pop()
+  File "../DB/DbClient.py", line 75, in pop
+    return self.client.pop()
+  File "../DB/MongodbClient.py", line 35, in pop
+    data = list(self.db[self.name].aggregate([{'$sample': {'size': 1}}]))
+  File "/usr/local/lib/python3.6/site-packages/pymongo/collection.py", line 2405, in aggregate
+    with self.__database.client._tmp_session(session, close=False) as s:
+  File "/usr/local/lib/python3.6/contextlib.py", line 82, in __enter__
+    return next(self.gen)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1611, in _tmp_session
+    s = self._ensure_session(session)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1598, in _ensure_session
+    return self.__start_session(True, causal_consistency=False)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1551, in __start_session
+    server_session = self._get_server_session()
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1584, in _get_server_session
+    return self._topology.get_server_session()
+  File "/usr/local/lib/python3.6/site-packages/pymongo/topology.py", line 429, in get_server_session
+    None)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/topology.py", line 200, in _select_servers_loop
+    self._error_message(selector))
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [Errno 111] Connection refused
+
+Exception in thread Thread-13:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/threading.py", line 916, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.6/threading.py", line 864, in run
+    self._target(*self._args, **self._kwargs)
+  File "../Schedule/ProxyRefreshSchedule.py", line 64, in refreshPool
+    pp.validProxy()
+  File "../Schedule/ProxyRefreshSchedule.py", line 41, in validProxy
+    raw_proxy_item = self.db.pop()
+  File "../DB/DbClient.py", line 75, in pop
+    return self.client.pop()
+  File "../DB/MongodbClient.py", line 35, in pop
+    data = list(self.db[self.name].aggregate([{'$sample': {'size': 1}}]))
+  File "/usr/local/lib/python3.6/site-packages/pymongo/collection.py", line 2405, in aggregate
+    with self.__database.client._tmp_session(session, close=False) as s:
+  File "/usr/local/lib/python3.6/contextlib.py", line 82, in __enter__
+    return next(self.gen)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1611, in _tmp_session
+    s = self._ensure_session(session)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1598, in _ensure_session
+    return self.__start_session(True, causal_consistency=False)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1551, in __start_session
+    server_session = self._get_server_session()
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1584, in _get_server_session
+    return self._topology.get_server_session()
+  File "/usr/local/lib/python3.6/site-packages/pymongo/topology.py", line 429, in get_server_session
+    None)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/topology.py", line 200, in _select_servers_loop
+    self._error_message(selector))
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [Errno 111] Connection refused
+
+Exception in thread Thread-2:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/threading.py", line 916, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.6/threading.py", line 864, in run
+    self._target(*self._args, **self._kwargs)
+  File "../Schedule/ProxyRefreshSchedule.py", line 64, in refreshPool
+    pp.validProxy()
+  File "../Schedule/ProxyRefreshSchedule.py", line 41, in validProxy
+    raw_proxy_item = self.db.pop()
+  File "../DB/DbClient.py", line 75, in pop
+    return self.client.pop()
+  File "../DB/MongodbClient.py", line 35, in pop
+    data = list(self.db[self.name].aggregate([{'$sample': {'size': 1}}]))
+  File "/usr/local/lib/python3.6/site-packages/pymongo/collection.py", line 2405, in aggregate
+    with self.__database.client._tmp_session(session, close=False) as s:
+  File "/usr/local/lib/python3.6/contextlib.py", line 82, in __enter__
+    return next(self.gen)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1611, in _tmp_session
+    s = self._ensure_session(session)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1598, in _ensure_session
+    return self.__start_session(True, causal_consistency=False)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1551, in __start_session
+    server_session = self._get_server_session()
+  File "/usr/local/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1584, in _get_server_session
+    return self._topology.get_server_session()
+  File "/usr/local/lib/python3.6/site-packages/pymongo/topology.py", line 429, in get_server_session
+    None)
+  File "/usr/local/lib/python3.6/site-packages/pymongo/topology.py", line 200, in _select_servers_loop
+    self._error_message(selector))
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [Errno 111] Connection refused

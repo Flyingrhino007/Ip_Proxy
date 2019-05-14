@@ -12,6 +12,8 @@ Description: 从免费的代理网站抓取proxy
 import re
 import sys
 import requests
+import os
+import time
 
 sys.path.append('..')
 
@@ -47,12 +49,20 @@ class GetFreeProxy(object):
         """
         print("get from txt")
         try:
-            txt = open('D:/Code/2019-1-12/Ip_Proxy/free-proxy-list.txt')
-            contens = txt.readlines()
-            # ipdict = []
-            for line in contens:
-                yield line.replace('\n', '')
+            commond = "wget https://raw.githubusercontent.com/a2u/free-proxy-list/master/free-proxy-list.txt"
+            output = os.popen(commond, 'r')
+            print(output)
+            
+            time.sleep(5)       
+            txt = open('free-proxy-list.txt')
+ 
+            for line in txt.readlines():
+#                print(line)
+                yield line
             txt.close()
+            commond = "rm free-proxy-list.txt"
+            output = os.popen(commond, 'r')
+            print(output)
         except Exception as e:
             print(r'proxy_list ip_get failed', e)
             return

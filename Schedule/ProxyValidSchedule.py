@@ -47,7 +47,7 @@ class ProxyValidSchedule(ProxyManager, object):
                 self.__validProxy()
             else:                                                   # 空则验证结束，等待5分钟，再次取出验证
                 self.log.info('Valid Complete! sleep 30 minutes.')
-                time.sleep(60 * 5)
+                time.sleep(60 * 15)
                 self.putQueue()
 
 

@@ -89,9 +89,9 @@ def fetchAll():
 
 def run():
     scheduler = BackgroundScheduler()
-    scheduler.add_job(fetchAll, 'interval', minutes=60, id="fetch_proxy")   # 调用ProxyManager.refresh获取新的代理，频率太高会增大验证的压力，导致raw_queue积压
+    scheduler.add_job(fetchAll, 'interval', minutes=120, id="fetch_proxy")   # 调用ProxyManager.refresh获取新的代理，频率太高会增大验证的压力，导致raw_queue积压
 
-    scheduler.add_job(batchRefresh, "interval", minutes=5)                  # 每分钟检查一次新的代理
+    scheduler.add_job(batchRefresh, "interval", minutes=30)                  # 每分钟检查一次新的代理
     scheduler.start()
 
     fetchAll()                                                              # 马上先执行一次
